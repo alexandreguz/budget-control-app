@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.expenseForm {
+  text-align: center;
+}
+
+.dashboard {
+  text-align: center;
+}
+
+.ExpensesSumary {
+  text-align: center
+}
