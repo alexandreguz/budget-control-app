@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 
-const Expenses = () => {
+const AddExpenses = (props) => {
   const [category, setCategory] = useState('');
   const [product, setProduct] = useState('');
   const [price, setPrice] = useState(null);
   const [quantity, setQuantity] = useState(null);
   const [expenses, setExpenses] = useState([]);
   const [date, setDate] = useState('');
-
-  const addExpense = () => {
+  
+  
+  const addExpense = (props) => {
+    
     const newExpense = {
-      category: category,
-      product: product,
-      price: price,
-      quantity: quantity,
-      date: date
+      category: setCategory,
+      product: setProduct,
+      price: setPrice,
+      quantity: setQuantity,
+      date: setDate
     };
     setExpenses([...expenses, newExpense]);
     setCategory('');
@@ -23,7 +25,8 @@ const Expenses = () => {
     setQuantity(null);
     setDate("")
   };
-
+  
+  
   return (
     <div className='expenseForm'>
       <h1> Expense Control</h1>
@@ -33,7 +36,7 @@ const Expenses = () => {
           id="category"
           value={category}
           onChange={(event) => setCategory(event.target.value)}
-        >
+          >
           <option value=""></option>
           <option value="Alimentação">Alimentação</option>
           <option value="Transporte">Transporte</option>
@@ -48,7 +51,7 @@ const Expenses = () => {
           type="text"
           value={product}
           onChange={(event) => setProduct(event.target.value)}
-        />
+          />
       </div>
       <div>
         <label htmlFor="price">Price</label>
@@ -57,7 +60,7 @@ const Expenses = () => {
           type="number"
           value={price}
           onChange={(event) => setPrice(Number(event.target.value))}
-        />
+          />
       </div>
       <div>
         <label htmlFor="quantity">Quantity:</label>
@@ -66,7 +69,7 @@ const Expenses = () => {
           type="number"
           value={quantity}
           onChange={(event) => setQuantity(Number(event.target.value))}
-        />
+          />
       </div>
       <div>
         <input
@@ -76,16 +79,15 @@ const Expenses = () => {
       </div>
      
       <button onClick={addExpense}>Add Expense</button>
-      <h2>Expenses</h2>
-      <ul>
-        {expenses.map((expense, index) => (
-          <li key={index}>
-            {expense.category} - {expense.product} - R$ {expense.price} - {expense.quantity} unidades - Selected Date: {expense.date}
-          </li>
-        ))}
-      </ul>
+
     </div>
   );
 };
 
-export default Expenses;
+export default AddExpenses;
+
+////
+
+
+
+
